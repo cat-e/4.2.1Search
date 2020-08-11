@@ -3,6 +3,8 @@ package ru.netology.manager;
 import ru.netology.domain.Proposal;
 import ru.netology.repository.Repository;
 
+import java.util.Arrays;
+
 
 public class ProposalManager {
     private final Repository repository;
@@ -23,6 +25,7 @@ public class ProposalManager {
                 System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[tmp.length - 1] = proposal;
                 result = tmp;
+                Arrays.sort(result);
             }
 
         }
