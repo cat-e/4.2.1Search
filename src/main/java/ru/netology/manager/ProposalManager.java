@@ -20,15 +20,14 @@ public class ProposalManager {
     public Proposal[] searchBy(String from, String to) {
         Proposal[] result = new Proposal[0];
         for (Proposal proposal : repository.findAll()) {
-            if ((from == proposal.getDepartureAirport()) & (to == proposal.getArrivalAirport())) {
+            if ((from.equals(proposal.getDepartureAirport())) & (to.equals(proposal.getArrivalAirport()))) {
                 Proposal[] tmp = new Proposal[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[tmp.length - 1] = proposal;
                 result = tmp;
-                Arrays.sort(result);
             }
-
         }
+        Arrays.sort(result);
         return result;
     }
 }
